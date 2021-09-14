@@ -15,5 +15,6 @@
 }
 
 .bat {
-    cursor: url('../img/bat.png'), auto;
+    cursor: url('../img/bat.png') 7 33, auto; /* img hotspot centred*/
+
 }
