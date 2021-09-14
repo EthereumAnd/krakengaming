@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <meta charset="utf-8">
+    <meta name="description" content="ethereum blockchain games">
+    <meta name="keywords" content="ethereum blockchain games">
+<!--    <link rel="stylesheet" href="css/bulma-spacelab.min.css">-->
+    <link rel="stylesheet" href="css/bulma-nuclear.min.css">
+    <link rel="stylesheet" href="css/kraken.css">
+    <script src="js/kraken.js" />
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-someting"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-someting');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kraken Gaming</title>
+
+    <style media="all">
+        .card {
+            width: 255px;
+        }
+
+        /*.spacer {width: 125px;}*/
+        .square {
+            width: 250px;
+            height: 250px
+        }
+
+        /*.landscape {*/
+        /*    width: 250px;*/
+        /*    height: 175px*/
+        /*}*/
+
+        /*.square {*/
+        /*    width: 250px;*/
+        /*    height: 250px*/
+        /*}*/
+
+        /*.card-footer {*/
+        /*    height: 45px*/
+        /*}*/
+        /*.card-content{height: 125px}*/
+        /*.card-content{height: 125px}*/
+        /*.card-image{height:250px; }*/
+        /*.section{padding-top:15px;}*/
+    </style>
+</head>
+<body>
+<nav class="navbar is-white">
+    <div class="navbar-brand">
+        <h2 class="title is-2 idler-font"> Kraken Gaming</h2>
+
+        <a class="navbar-item is-hidden-desktop" href="https://twitter.com/EthereumAnd" target="_blank">
+        <span class="icon tag is-info is-medium" title="Twitter">
+        <i class="fab fa-twitter"></i>
+        </span>
+        </a>
+
+        <a class="navbar-item is-hidden-desktop " href="https://discord.gg/cZaQjSXdQJ" target="_blank">
+        <span class="icon tag is-primary is-medium" title="Discord">
+         <i class="fab fa-discord"></i>
+        </span>
+        </a>
+
+
+    </div>
+    <div id="navMenuExample8" class="navbar-menu">
+        <div class="navbar-start">
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="field is-grouped">
+                    <p class="control">
+                        <a class="button is-primary " href="https://twitter.com/EthereumAnd">
+                             <span class="icon" title="Slide into our DM's">
+                                <i class="fab fa-twitter"></i>
+                                 <!--<i class="fa fa-download"></i>-->
+                                </span>
+                            <span title="Slide into DM's">Dev Twitter</span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a class="button is-success" href="https://discord.gg/cZaQjSXdQJ">
+                             <span class="icon" title="Discord">
+                                <i class="fab fa-discord"></i>
+                                 <!--<i class="fa fa-download"></i>-->
+                                </span>
+                            <span title="Discord">Discord</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="section">
+    <canvas class="bat" style="border:1px solid #000000;margin:0;padding:0;position:relative;left:5%;top:5%; background-color: white;"
+            id="imgCanvas" ></canvas>
+</section>
+<footer class="footer idler-font">
+    <div class="content has-text-centered">
+        <p>Kraken Gaming : experimenting with art and games on the blockchain</a></p>
+    </div>
+</footer>
+</body>
+<script>
+    var canvas = document.getElementById("imgCanvas");
+    var context = canvas.getContext("2d");
+    resizeCanvasToDisplaySize(context.canvas);
+
+    const batWidth = 20;
+    const batHeight = 60;
+    // const white = '#FFFFFF'
+    const black = '#000000'
+    context.fillStyle = black;
+    var prevPosition = {};
+    // const path1 = new Path2D();
+    // path1.rect(10, 10, 100,100);
+    function createImageOnCanvas(imageId) {
+        //canvas.style.display = "block";
+        //document.getElementById("images").style.overflowY = "hidden";
+        //var img = new Image(300, 300);
+        //img.src = document.getElementById(imageId).src;
+        //context.drawImage(img, (0), (0)); //onload....
+    }
+
+    function draw(e) {
+        // context.fillStyle = white;
+        // context.clearRect(prevPosition.x - (batWidth/2) - 5, prevPosition.y - (batHeight/2) -5, batWidth +10, batHeight+10);
+        context.clearRect(prevPosition.x - (batWidth / 2) - 1, prevPosition.y - (batHeight / 2) - 1, batWidth + 2, batHeight + 2);
+        const pos = getMousePos(canvas, e);
+        context.fillRect(pos.x - (batWidth / 2), pos.y - (batHeight / 2), batWidth, batHeight);
+        prevPosition = pos;
+        // context.drawImage(img, pos.x,  pos.y);
+    }
+
+    // window.addEventListener('mousemove', draw, false);
+
+    function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+            y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+        };
+    }
+</script>
+</html>

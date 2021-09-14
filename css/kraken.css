@@ -1,0 +1,19 @@
+@font-face {
+    font-family: idler;
+    src: url("idler_inner.otf");
+}
+
+.idler-font {
+    font-family: idler;
+}
+
+#imgCanvas {
+    /*width: 90%;*/
+    /*height: 50%;*/
+    width: 1400px;
+    height: 700px;
+}
+
+.bat {
+    cursor: url('../img/bat.png'), auto;
+}
